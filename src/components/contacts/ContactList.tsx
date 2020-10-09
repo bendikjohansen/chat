@@ -13,9 +13,9 @@ interface Props {
 const useStyles = makeStyles({
   root: {
     height: "70px",
-    display: 'flex',
-    alignItems: 'center'
-  }
+    display: "flex",
+    alignItems: "center",
+  },
 });
 
 const ContactList = ({ children }: Props) => {
@@ -29,7 +29,12 @@ const ContactList = ({ children }: Props) => {
         </ListItemText>
       </ListItem>
       <ListItem>
-        <TextField margin="dense" fullWidth label="Search by name" variant="outlined" />
+        <TextField
+          margin="dense"
+          fullWidth
+          label="Search by name"
+          variant="outlined"
+        />
       </ListItem>
       {children}
     </List>

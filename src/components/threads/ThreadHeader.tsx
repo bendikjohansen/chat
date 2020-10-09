@@ -1,14 +1,12 @@
-import Avatar from "@material-ui/core/Avatar";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
-import ListItemAvatar from "@material-ui/core/ListItemAvatar";
-import ListItemText from "@material-ui/core/ListItemText";
 import { makeStyles } from "@material-ui/core/styles";
 import React from "react";
-import { User } from "../../redux/slices/authSlice";
+import { Contact } from "../../redux/slices/contactSlice";
+import ContactHeader from "./ContactHeader";
 
 interface Props {
-  user: User;
+  contact: Contact | null;
 }
 
 const useStyles = makeStyles({
@@ -22,22 +20,15 @@ const useStyles = makeStyles({
   },
 });
 
-const ThreadHeader = ({ user }: Props) => {
+const ThreadHeader = ({ contact }: Props) => {
   const classes = useStyles();
 
   return (
     <List disablePadding>
       <ListItem divider className={classes.root}>
-        <ListItemAvatar>
-          <Avatar
-            alt={user.displayName}
-            src={user.profileUrl}
-          />
-        </ListItemAvatar>
-        <ListItemText
-          primary={user?.displayName}
-          secondary="Active 8 minutes ago"
-        />
+        {contact && (
+          <ContactHeader contact={contact} />
+        )}
       </ListItem>
     </List>
   );

@@ -1,12 +1,12 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { ThreadHeader } from "../../components/threads";
-import { selectUser, User } from "../../redux/slices/authSlice";
+import { selectCurrent } from "../../redux/slices/contactSlice";
 
 const ThreadHeaderContainer = () => {
-  const user = useSelector(selectUser) as User;
+  const contact = useSelector(selectCurrent);
 
-  return <ThreadHeader user={user} />;
+  return <ThreadHeader contact={contact} />;
 };
 
 export default ThreadHeaderContainer;

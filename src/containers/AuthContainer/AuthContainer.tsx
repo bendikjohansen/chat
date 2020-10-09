@@ -1,12 +1,12 @@
 import React from "react";
-import LoginContainer from "../LoginContainer/LoginContainer";
 import AppContainer from "../AppContainer/AppContainer";
+import LoginContainer from "../LoginContainer/LoginContainer";
 import useAuth from "./hooks/useAuth";
 
 const AuthContainer = () => {
-  const isLoggedIn = useAuth();
+  const user = useAuth();
 
-  return isLoggedIn ? (
+  return user ? (
     <AppContainer />
   ) : (
     <LoginContainer />

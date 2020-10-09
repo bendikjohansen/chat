@@ -1,21 +1,12 @@
-import Box from "@material-ui/core/Box";
 import React from "react";
-import { useSelector } from "react-redux";
-import { ContactList, ContactListItem } from "../../components/contacts";
-import { selectUser, User } from "../../redux/slices/authSlice";
+import { ContactSection } from "../../components/contacts";
+import { useFetchContacts, useGetCurrentContact } from "./hooks";
 
 const ContactContainer = () => {
-  const user = useSelector(selectUser) as User;
+  const contacts = useFetchContacts();
+  const current = useGetCurrentContact();
 
-  return (
-    <Box minWidth="300px">
-      <ContactList>
-        <ContactListItem user={user} />
-        <ContactListItem user={user} />
-        <ContactListItem user={user} />
-      </ContactList>
-    </Box>
-  );
+  return <ContactSection contacts={contacts} current={current} />;
 };
 
 export default ContactContainer;

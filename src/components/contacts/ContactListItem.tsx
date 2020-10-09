@@ -6,11 +6,13 @@ import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 import ListItemText from "@material-ui/core/ListItemText";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
-import React from "react";
-import { User } from "../../redux/slices/authSlice";
+import React, { useMemo } from "react";
+import { Contact } from "../../redux/slices/contactSlice";
+import ContactLink from "./ContactLink";
 
 interface Props {
-  user: User;
+  contact: Contact;
+  currentId: string;
 }
 
 const useStyles = makeStyles({
@@ -27,18 +29,23 @@ const useStyles = makeStyles({
   },
 });
 
-const ContactListItem = ({ user }: Props) => {
+const ContactListItem = ({ contact, currentId }: Props) => {
   const classes = useStyles();
+  const contactUrl = useMemo(() => `/t/${contact.id}`, [contact.id]);
+  const isSelected = useMemo(() => contact.id === currentId, [contact, currentId]);
 
   return (
-    <ListItem button ContainerProps={{ className: classes.root }}>
+    <ListItem
+      button
+      ContainerProps={{ className: classes.root }}
+      component={ContactLink}
+      to={contactUrl}
+      selected={isSelected}
+    >
       <ListItemAvatar>
-        <Avatar
-          alt={user.displayName}
-          src={user.profileUrl}
-        />
+        <Avatar alt={contact.name} src={contact.profilePicture} />
       </ListItemAvatar>
-      <ListItemText>{user.displayName}</ListItemText>
+      <ListItemText>{contact.name}</ListItemText>
       <ListItemSecondaryAction className="listitem-menu">
         <IconButton>
           <MoreHorizIcon fontSize="small" />
