@@ -2,9 +2,9 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../../redux/store";
 
 export interface User {
-  uid: string | null;
-  displayName: string | null;
-  profileUrl: string | null;
+  uid: string;
+  displayName: string;
+  profileUrl: string;
   getToken: string;
 }
 

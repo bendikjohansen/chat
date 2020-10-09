@@ -34,8 +34,8 @@ const ContactListItem = ({ user }: Props) => {
     <ListItem button ContainerProps={{ className: classes.root }}>
       <ListItemAvatar>
         <Avatar
-          alt={user.displayName as string}
-          src={user.profileUrl as string}
+          alt={user.displayName}
+          src={user.profileUrl}
         />
       </ListItemAvatar>
       <ListItemText>{user.displayName}</ListItemText>

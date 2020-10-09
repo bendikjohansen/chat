@@ -11,9 +11,9 @@ import {
 } from "../../../redux/slices/authSlice";
 
 const convert = async (user: firebase.User): Promise<User> => ({
-  displayName: user.displayName,
+  displayName: user.displayName as string,
   uid: user.uid,
-  profileUrl: user.photoURL,
+  profileUrl: user.photoURL as string,
   getToken: await user.getIdToken(),
 });
 
