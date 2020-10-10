@@ -1,13 +1,14 @@
-import Box from '@material-ui/core/Box';
-import TextField from '@material-ui/core/TextField';
-import React from 'react';
+import React from "react";
+import { Composer } from "../../components/messages";
+import { useNewMessage, useSubmitMessageHandler } from "./hooks";
+import useChangeMessageHandler from "./hooks/useChangeMessageHandler";
 
 const ComposerContainer = () => {
-  return (
-    <Box padding={1}>
-      <TextField placeholder="Type a message" fullWidth />
-    </Box>
-  );
+  const value = useNewMessage();
+  const handleChange = useChangeMessageHandler();
+  const handleSubmit = useSubmitMessageHandler();
+
+  return <Composer value={value} onChange={handleChange} onKeyDown={handleSubmit} />;
 };
 
 export default ComposerContainer;
