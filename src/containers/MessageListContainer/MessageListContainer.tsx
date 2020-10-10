@@ -1,6 +1,6 @@
 import Typography from "@material-ui/core/Typography";
 import React from "react";
-import { MessageBubble, MessageList } from "../../components/threads";
+import { MessageBubble, MessageList } from "../../components/messages";
 
 const MessageListContainer = () => {
   return (

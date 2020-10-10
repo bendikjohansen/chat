@@ -7,11 +7,11 @@ import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 import ListItemText from "@material-ui/core/ListItemText";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import React, { useMemo } from "react";
-import { Contact } from "../../redux/slices/contactSlice";
-import ContactLink from "./ContactLink";
+import { Thread } from "../../redux/slices/threadSlice";
+import ThreadLink from "./ThreadLink";
 
 interface Props {
-  contact: Contact;
+  thread: Thread;
   currentId: string;
 }
 
@@ -29,23 +29,23 @@ const useStyles = makeStyles({
   },
 });
 
-const ContactListItem = ({ contact, currentId }: Props) => {
+const ThreadListItem = ({ thread, currentId }: Props) => {
   const classes = useStyles();
-  const contactUrl = useMemo(() => `/t/${contact.id}`, [contact.id]);
-  const isSelected = useMemo(() => contact.id === currentId, [contact, currentId]);
+  const threadUrl = useMemo(() => `/t/${thread.id}`, [thread.id]);
+  const isSelected = useMemo(() => thread.id === currentId, [thread, currentId]);
 
   return (
     <ListItem
       button
       ContainerProps={{ className: classes.root }}
-      component={ContactLink}
-      to={contactUrl}
+      component={ThreadLink}
+      to={threadUrl}
       selected={isSelected}
     >
       <ListItemAvatar>
-        <Avatar alt={contact.name} src={contact.profilePicture} />
+        <Avatar alt={thread.name} src={thread.profilePicture} />
       </ListItemAvatar>
-      <ListItemText>{contact.name}</ListItemText>
+      <ListItemText>{thread.name}</ListItemText>
       <ListItemSecondaryAction className="listitem-menu">
         <IconButton>
           <MoreHorizIcon fontSize="small" />
@@ -55,4 +55,4 @@ const ContactListItem = ({ contact, currentId }: Props) => {
   );
 };
 
-export default ContactListItem;
+export default ThreadListItem;

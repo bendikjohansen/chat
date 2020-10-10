@@ -2,11 +2,11 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import { makeStyles } from "@material-ui/core/styles";
 import React from "react";
-import { Contact } from "../../redux/slices/contactSlice";
-import ContactHeader from "./ContactHeader";
+import { Thread } from "../../redux/slices/threadSlice";
+import ThreadHeaderItem from "./ThreadHeaderItem";
 
 interface Props {
-  contact: Contact | null;
+  thread: Thread | null;
 }
 
 const useStyles = makeStyles({
@@ -20,14 +20,14 @@ const useStyles = makeStyles({
   },
 });
 
-const ThreadHeader = ({ contact }: Props) => {
+const ThreadHeader = ({ thread }: Props) => {
   const classes = useStyles();
 
   return (
     <List disablePadding>
       <ListItem divider className={classes.root}>
-        {contact && (
-          <ContactHeader contact={contact} />
+        {thread && (
+          <ThreadHeaderItem thread={thread} />
         )}
       </ListItem>
     </List>

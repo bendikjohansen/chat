@@ -1,4 +1,3 @@
-export { default as MessageBubble } from './MessageBubble';
-export { default as MessageList } from './MessageList';
-export { default as ThreadHeader } from './ThreadHeader';
-export { default as ThreadViewLayout } from './ThreadViewLayout';
+export { default as ThreadList } from './ThreadList';
+export { default as ThreadListItem } from './ThreadListItem';
+export { default as ThreadSection } from './ThreadSection';

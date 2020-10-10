@@ -1,15 +1,15 @@
 import React from "react";
-import { ThreadViewLayout } from "../../components/threads";
+import { MessageViewLayout } from "../../components/messages";
 import ComposerContainer from "../ComposerContainer/ComposerContainer";
 import MessageListContainer from "../MessageListContainer/MessageListContainer";
 import ThreadHeaderContainer from "../ThreadHeaderContainer/ThreadHeaderContainer";
 
-const ThreadContainer = () => (
-  <ThreadViewLayout>
+const MessagesContainer = () => (
+  <MessageViewLayout>
     <ThreadHeaderContainer />
     <MessageListContainer />
     <ComposerContainer />
-  </ThreadViewLayout>
+  </MessageViewLayout>
 );
 
-export default ThreadContainer;
+export default MessagesContainer;

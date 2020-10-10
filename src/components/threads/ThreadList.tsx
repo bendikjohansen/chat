@@ -18,14 +18,14 @@ const useStyles = makeStyles({
   },
 });
 
-const ContactList = ({ children }: Props) => {
+const ThreadList = ({ children }: Props) => {
   const classes = useStyles();
 
   return (
     <List disablePadding>
       <ListItem className={classes.root}>
         <ListItemText>
-          <Typography variant="h4">Contacts</Typography>
+          <Typography variant="h4">Threads</Typography>
         </ListItemText>
       </ListItem>
       <ListItem>
@@ -41,4 +41,4 @@ const ContactList = ({ children }: Props) => {
   );
 };
 
-export default ContactList;
+export default ThreadList;

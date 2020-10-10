@@ -1,13 +1,16 @@
 import React from "react";
 import AppLayout from "../../components/AppLayout";
-import ContactContainer from "../ContactContainer/ContactContainer";
-import ThreadContainer from "../ThreadContainer/ThreadContainer";
+import ThreadsContainer from "../ThreadsContainer/ThreadsContainer";
+import MessageContainer from "../MessagesContainer/MessagesContainer";
+import { useSetCurrentThread } from "./hooks";
 
 const AppContainer = () => {
+  useSetCurrentThread();
+
   return (
     <AppLayout>
-      <ContactContainer />
-      <ThreadContainer />
+      <ThreadsContainer />
+      <MessageContainer />
     </AppLayout>
   );
 };

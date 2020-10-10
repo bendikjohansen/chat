@@ -15,7 +15,7 @@ const useStyles = makeStyles({
   },
 });
 
-const ThreadContainer = ({ children }: Props) => {
+const MessageViewLayout = ({ children }: Props) => {
   const classes = useStyles();
 
   return (
@@ -27,4 +27,4 @@ const ThreadContainer = ({ children }: Props) => {
   );
 };
 
-export default ThreadContainer;
+export default MessageViewLayout;
