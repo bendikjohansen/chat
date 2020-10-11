@@ -25,13 +25,16 @@ export const threadSlice = createSlice({
     setThreads: (state, { payload }: PayloadAction<Thread[]>) => {
       state.list = payload;
     },
-    setCurrent: (state, { payload }: PayloadAction<string>) => {
+    setCurrentThread: (state, { payload }: PayloadAction<string>) => {
       state.current = payload;
+    },
+    resetCurrentThread: (state) => {
+      state.current = initialState.current;
     }
   },
 });
 
-export const { setThreads, setCurrent } = threadSlice.actions;
+export const { setThreads, setCurrentThread, resetCurrentThread } = threadSlice.actions;
 
 export const fetchThreads = (): AppThunk => async (dispatch) => {
   const threads = await fetchAllThreads();

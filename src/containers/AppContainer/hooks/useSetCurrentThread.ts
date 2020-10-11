@@ -4,29 +4,34 @@ import { useRouteMatch } from "react-router-dom";
 import {
   selectThreads,
   selectCurrentThread,
-  setCurrent,
+  setCurrentThread,
+  resetCurrentThread,
 } from "../../../redux/slices/threadSlice";
 
 interface MatchParams {
-  userId: string;
+  threadId: string;
 }
 
 const useSetCurrentThread = () => {
   const dispatch = useDispatch();
-  const match = useRouteMatch<MatchParams>("/t/:userId");
+  const match = useRouteMatch<MatchParams>("/t/:threadId");
   const current = useSelector(selectCurrentThread);
   const threads = useSelector(selectThreads);
 
   useEffect(() => {
-    const userId = match?.params.userId;
-    if (!userId || current?.id === userId) {
+    const threadId = match?.params.threadId;
+    if (!threadId) {
+      dispatch(resetCurrentThread())
+      return;
+    }
+    if (current?.id === threadId) {
       return;
     }
     if (!threads || threads?.length === 0) {
       return;
     }
 
-    dispatch(setCurrent(userId));
+    dispatch(setCurrentThread(threadId));
   }, [threads, current, dispatch, match]);
 };
 

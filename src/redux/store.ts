@@ -4,7 +4,7 @@ import userReducer from './slices/userSlice';
 import threadReducer from './slices/threadSlice';
 import composerReducer from './slices/composerSlice';
 import newThreadReducer from './slices/newThreadSlice';
-
+import messageReducer from './slices/messageSlice';
 
 export const store = configureStore({
   reducer: {
@@ -12,7 +12,8 @@ export const store = configureStore({
     users: userReducer,
     threads: threadReducer,
     composer: composerReducer,
-    newThread: newThreadReducer
+    newThread: newThreadReducer,
+    messages: messageReducer
   },
 });
 

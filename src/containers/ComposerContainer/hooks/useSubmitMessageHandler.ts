@@ -1,4 +1,3 @@
-import { current } from "@reduxjs/toolkit";
 import keycode from "keycode";
 import { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -25,7 +24,7 @@ const useSubmitMessageHandler = () => {
           createThread(threadMembers.concat([user]));
         } else {
           const threadId = currentThread.id;
-          storeMessage(threadId, value);
+          storeMessage(threadId, value, user);
           dispatch(submit(threadId));
         }
       }

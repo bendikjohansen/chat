@@ -1,16 +1,32 @@
-import Typography from "@material-ui/core/Typography";
-import React from "react";
-import { MessageBubble, MessageList } from "../../components/messages";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { MessageList } from "../../components/messages";
+import TextMessageView from "../../components/messages/TextMessageView";
+import { selectUser } from "../../redux/slices/authSlice";
+import { clearMessages, fetchMessages, selectThreadMessages } from "../../redux/slices/messageSlice";
+import { selectCurrentThread } from "../../redux/slices/threadSlice";
+import { selectUsers, User } from "../../redux/slices/userSlice";
+
 
 const MessageListContainer = () => {
+  const thread = useSelector(selectCurrentThread);
+  const messages = useSelector(selectThreadMessages);
+  const users = useSelector(selectUsers);
+  const user = useSelector(selectUser) as User;
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if (thread) {
+      dispatch(fetchMessages(thread.id));
+    } else {
+      dispatch(clearMessages());
+    }
+  }, [dispatch, thread]);
+
   return (
     <MessageList>
-      <MessageBubble variant="from">
-        <Typography>Hello</Typography>
-      </MessageBubble>
-      <MessageBubble variant="to">
-        <Typography>Hi</Typography>
-      </MessageBubble>
+      {messages.map(message => (
+        <TextMessageView key={message.id} users={users} user={user} message={message} />
+      ))}
     </MessageList>
   );
 };
