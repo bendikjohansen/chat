@@ -6,7 +6,7 @@ import { Thread } from "../../redux/slices/threadSlice";
 import ThreadHeaderItem from "./ThreadHeaderItem";
 
 interface Props {
-  thread: Thread | null;
+  thread: Thread | undefined;
 }
 
 const useStyles = makeStyles({

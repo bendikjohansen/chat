@@ -10,7 +10,7 @@ export interface Thread {
 
 interface ThreadState {
   list: Thread[] | null;
-  current: Thread | null;
+  current: string | null;
 }
 
 const initialState: ThreadState = {
@@ -26,8 +26,7 @@ export const threadSlice = createSlice({
       state.list = payload;
     },
     setCurrent: (state, { payload }: PayloadAction<string>) => {
-      const currentThread = state.list?.find(thread => thread.id === payload) ?? null;
-      state.current = currentThread;
+      state.current = payload;
     }
   },
 });
@@ -40,6 +39,6 @@ export const fetchThreads = (): AppThunk => async (dispatch) => {
 };
 
 export const selectThreads = (state: RootState) => state.threads.list;
-export const selectCurrent = (state: RootState) => state.threads.current;
+export const selectCurrentThread = (state: RootState) => state.threads.list?.find(thread => thread.id === state.threads.current);
 
 export default threadSlice.reducer;

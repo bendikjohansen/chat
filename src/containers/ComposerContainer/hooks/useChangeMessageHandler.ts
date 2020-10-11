@@ -1,20 +1,24 @@
 import { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setNewMessage } from "../../../redux/slices/newMessageSlice";
-import { selectCurrent } from "../../../redux/slices/threadSlice";
+import { change } from "../../../redux/slices/composerSlice";
+import { selectCurrentThread } from "../../../redux/slices/threadSlice";
 
 const useChangeMessageHandler = () => {
   const dispatch = useDispatch();
-  const currentThread = useSelector(selectCurrent);
+  const currentThread = useSelector(selectCurrentThread);
 
   return useCallback(
-    (e) =>
-      dispatch(
-        setNewMessage({
-          userId: currentThread?.id ?? "",
-          content: e.target.value,
-        })
-      ),
+    (e) => {
+      if (!currentThread) {
+        return;
+      }
+
+      const action = change({
+        threadId: currentThread.id,
+        content: e.target.value,
+      });
+      dispatch(action);
+    },
     [currentThread, dispatch]
   );
 };

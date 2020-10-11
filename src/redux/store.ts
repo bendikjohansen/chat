@@ -1,13 +1,15 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import authReducer from './slices/authSlice';
+import userReducer from './slices/userSlice';
 import threadReducer from './slices/threadSlice';
-import newMessageReducer from './slices/newMessageSlice';
+import composerReducer from './slices/composerSlice';
 
 export const store = configureStore({
   reducer: {
     auth: authReducer,
+    users: userReducer,
     threads: threadReducer,
-    newMessages: newMessageReducer
+    composer: composerReducer
   },
 });
 

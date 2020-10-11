@@ -1,14 +1,14 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { ThreadSection } from "../../components/threads";
-import { selectCurrent } from "../../redux/slices/threadSlice";
+import { selectCurrentThread } from "../../redux/slices/threadSlice";
 import { useFetchThreads } from "./hooks";
 
 const ThreadsContainer = () => {
   const threads = useFetchThreads();
-  const current = useSelector(selectCurrent);
+  const thread = useSelector(selectCurrentThread);
 
-  return <ThreadSection threads={threads} current={current} />;
+  return <ThreadSection threads={threads} selected={thread} />;
 };
 
 export default ThreadsContainer;

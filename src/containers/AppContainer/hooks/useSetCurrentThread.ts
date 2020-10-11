@@ -1,7 +1,11 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouteMatch } from "react-router-dom";
-import { selectThreads, selectCurrent, setCurrent } from "../../../redux/slices/threadSlice";
+import {
+  selectThreads,
+  selectCurrentThread,
+  setCurrent,
+} from "../../../redux/slices/threadSlice";
 
 interface MatchParams {
   userId: string;
@@ -10,7 +14,7 @@ interface MatchParams {
 const useSetCurrentThread = () => {
   const dispatch = useDispatch();
   const match = useRouteMatch<MatchParams>("/t/:userId");
-  const current = useSelector(selectCurrent);
+  const current = useSelector(selectCurrentThread);
   const threads = useSelector(selectThreads);
 
   useEffect(() => {
@@ -22,9 +26,7 @@ const useSetCurrentThread = () => {
       return;
     }
 
-    if (userId && userId !== current?.id) {
-      dispatch(setCurrent(userId));
-    }
+    dispatch(setCurrent(userId));
   }, [threads, current, dispatch, match]);
 };
 

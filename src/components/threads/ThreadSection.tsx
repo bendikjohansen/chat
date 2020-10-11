@@ -5,11 +5,11 @@ import { Thread } from "../../redux/slices/threadSlice";
 
 interface Props {
   threads: Thread[];
-  current: Thread | null;
+  selected: Thread | undefined;
 }
 
-const ThreadSection = ({ threads, current }: Props) => {
-  const currentId = useMemo(() => current?.id || '', [current]);
+const ThreadSection = ({ threads, selected }: Props) => {
+  const currentId = useMemo(() => selected?.id || '', [selected]);
 
   return (
     <Box minWidth="300px">
