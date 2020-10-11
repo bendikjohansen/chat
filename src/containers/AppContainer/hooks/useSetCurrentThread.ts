@@ -20,11 +20,11 @@ const useSetCurrentThread = () => {
 
   useEffect(() => {
     const threadId = match?.params.threadId;
-    if (!threadId) {
-      dispatch(resetCurrentThread())
+    if (!threadId && current) {
+      dispatch(resetCurrentThread());
       return;
     }
-    if (current?.id === threadId) {
+    if (!threadId || current?.id === threadId) {
       return;
     }
     if (!threads || threads?.length === 0) {

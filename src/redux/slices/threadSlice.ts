@@ -1,11 +1,12 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { fetchAllThreads } from "../../database";
 import { AppThunk, RootState } from "../store";
+import { User } from "./userSlice";
 
 export interface Thread {
   id: string;
   name: string;
-  profilePicture: string;
+  members: string[];
 }
 
 interface ThreadState {
@@ -36,9 +37,20 @@ export const threadSlice = createSlice({
 
 export const { setThreads, setCurrentThread, resetCurrentThread } = threadSlice.actions;
 
-export const fetchThreads = (): AppThunk => async (dispatch) => {
+export const fetchThreads = (user: User, users: User[]): AppThunk => async (dispatch) => {
   const threads = await fetchAllThreads();
-  dispatch(setThreads(threads));
+  const threadsWithNames = threads.map(thread => {
+    if (thread.name) {
+      return thread;
+    }
+    const otherUsers = thread.members.filter(id => id !== user.id);
+    const threadName = otherUsers.map(userId => users.find(u => u.id === userId)?.name).join(', ');
+    return {
+      ...thread,
+      name: threadName
+    };
+  })
+  dispatch(setThreads(threadsWithNames));
 };
 
 export const selectThreads = (state: RootState) => state.threads.list;

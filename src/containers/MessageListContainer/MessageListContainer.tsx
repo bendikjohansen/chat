@@ -17,10 +17,13 @@ const MessageListContainer = () => {
   useEffect(() => {
     if (thread) {
       dispatch(fetchMessages(thread.id));
-    } else {
-      dispatch(clearMessages());
     }
   }, [dispatch, thread]);
+  useEffect(() => {
+    if(!thread && messages.length > 0) {
+      dispatch(clearMessages());
+    }
+  }, [dispatch, messages, thread]);
 
   return (
     <MessageList>

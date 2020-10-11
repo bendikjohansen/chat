@@ -5,7 +5,6 @@ import { User } from "../redux/slices/userSlice";
 
 const createThread = async (users: User[]) => {
   await firebase.database().ref(`threads`).push({
-    name: users.map(user => user.name).sort().join(', '),
     members: users.map(u => u.id)
   });
 };

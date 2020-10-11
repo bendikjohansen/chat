@@ -5,8 +5,8 @@ import MessageContainer from "../MessagesContainer/MessagesContainer";
 import { useFetchUsers, useSetCurrentThread } from "./hooks";
 
 const AppContainer = () => {
-  useSetCurrentThread();
   useFetchUsers();
+  useSetCurrentThread();
 
   return (
     <AppLayout>
