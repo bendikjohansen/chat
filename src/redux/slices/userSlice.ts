@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { readAllThreads } from "../../database";
+import { fetchAllUsers } from "../../database";
 import { AppThunk, RootState } from "../store";
 
 export interface User {
@@ -28,11 +28,11 @@ export const threadSlice = createSlice({
 
 export const { setUsers } = threadSlice.actions;
 
-export const fetchThreads = (): AppThunk => async (dispatch) => {
-  const users = await readAllThreads();
+export const fetchUsers = (): AppThunk => async (dispatch) => {
+  const users = await fetchAllUsers();
   dispatch(setUsers(users));
 };
 
-export const selectThreads = (state: RootState) => state.users.list;
+export const selectUsers = (state: RootState) => state.users.list;
 
 export default threadSlice.reducer;

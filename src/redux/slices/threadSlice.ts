@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { readAllThreads } from "../../database";
+import { fetchAllThreads } from "../../database";
 import { AppThunk, RootState } from "../store";
 
 export interface Thread {
@@ -34,7 +34,7 @@ export const threadSlice = createSlice({
 export const { setThreads, setCurrent } = threadSlice.actions;
 
 export const fetchThreads = (): AppThunk => async (dispatch) => {
-  const threads = await readAllThreads();
+  const threads = await fetchAllThreads();
   dispatch(setThreads(threads));
 };
 

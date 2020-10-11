@@ -8,7 +8,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import React, { useMemo } from "react";
 import { Thread } from "../../redux/slices/threadSlice";
-import ThreadLink from "./ThreadLink";
+import ThreadLink from "./Link";
 
 interface Props {
   thread: Thread;

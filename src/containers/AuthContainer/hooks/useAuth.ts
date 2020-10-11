@@ -7,14 +7,13 @@ import {
   login,
   logout,
   selectUser,
-  User,
 } from "../../../redux/slices/authSlice";
+import { User } from '../../../redux/slices/userSlice';
 
 const convert = async (user: firebase.User): Promise<User> => ({
   name: user.displayName as string,
   id: user.uid,
   profilePicture: user.photoURL as string,
-  getToken: await user.getIdToken(),
 });
 
 const useAuth = (): User | null => {

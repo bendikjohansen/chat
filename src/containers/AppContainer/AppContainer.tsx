@@ -2,10 +2,11 @@ import React from "react";
 import AppLayout from "../../components/AppLayout";
 import ThreadsContainer from "../ThreadsContainer/ThreadsContainer";
 import MessageContainer from "../MessagesContainer/MessagesContainer";
-import { useSetCurrentThread } from "./hooks";
+import { useFetchUsers, useSetCurrentThread } from "./hooks";
 
 const AppContainer = () => {
   useSetCurrentThread();
+  useFetchUsers();
 
   return (
     <AppLayout>

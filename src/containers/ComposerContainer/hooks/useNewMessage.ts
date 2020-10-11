@@ -5,7 +5,7 @@ import { selectCurrentThread } from "../../../redux/slices/threadSlice";
 
 const useNewMessage = () => {
   const currentThread = useSelector(selectCurrentThread);
-  const newMessageSelector = useMemo(() => selectMessage(currentThread?.id ?? ''), [currentThread]);
+  const newMessageSelector = useMemo(() => selectMessage(currentThread?.id ?? 'new'), [currentThread]);
   const newMessage = useSelector(newMessageSelector);
   const value = useMemo(() => newMessage ?? '', [newMessage]);
 

@@ -9,12 +9,10 @@ const useChangeMessageHandler = () => {
 
   return useCallback(
     (e) => {
-      if (!currentThread) {
-        return;
-      }
+      const threadId = currentThread?.id ?? 'new';
 
       const action = change({
-        threadId: currentThread.id,
+        threadId: threadId,
         content: e.target.value,
       });
       dispatch(action);

@@ -2,11 +2,9 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import { makeStyles } from "@material-ui/core/styles";
 import React from "react";
-import { Thread } from "../../redux/slices/threadSlice";
-import ThreadHeaderItem from "./ThreadHeaderItem";
 
 interface Props {
-  thread: Thread | undefined;
+  children: JSX.Element | undefined;
 }
 
 const useStyles = makeStyles({
@@ -14,21 +12,19 @@ const useStyles = makeStyles({
     height: "70px",
     display: "flex",
     alignItems: "center",
-    position: "fixed",
+    position: "sticky",
     backgroundColor: "rgba(255, 255, 255, 0.9)",
     zIndex: 1,
   },
 });
 
-const ThreadHeader = ({ thread }: Props) => {
+const ThreadHeader = ({ children }: Props) => {
   const classes = useStyles();
 
   return (
     <List disablePadding>
       <ListItem divider className={classes.root}>
-        {thread && (
-          <ThreadHeaderItem thread={thread} />
-        )}
+        {children}
       </ListItem>
     </List>
   );
