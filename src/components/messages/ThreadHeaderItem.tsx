@@ -1,6 +1,9 @@
+import Avatar from "@material-ui/core/Avatar";
 import ListItemText from "@material-ui/core/ListItemText";
 import React from "react";
 import { Thread } from "../../redux/slices/threadSlice";
+import AvatarGroup from "@material-ui/lab/AvatarGroup";
+import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 
 interface Props {
   thread: Thread;
@@ -8,9 +11,13 @@ interface Props {
 
 const ThreadHeaderItem = ({ thread }: Props) => (
   <>
-    {/* <ListItemAvatar>
-      <Avatar alt={thread?.name} src={thread?.profilePicture} />
-    </ListItemAvatar> */}
+    <ListItemAvatar>
+      <AvatarGroup max={3}>
+        {thread.users.map((user) => (
+          <Avatar key={user.id} src={user.profilePicture} alt={user.name} />
+        ))}
+      </AvatarGroup>
+    </ListItemAvatar>
     <ListItemText primary={thread?.name} secondary="Active 8 minutes ago" />
   </>
 );

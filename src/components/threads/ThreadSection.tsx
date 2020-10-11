@@ -25,7 +25,7 @@ const ThreadSection = ({ threads, selected, onCreateThreadClick }: Props) => {
   const currentId = useMemo(() => selected?.id || "", [selected]);
 
   return (
-    <Box minWidth="300px">
+    <Box minWidth="400px">
       <List>
         <ThreadListHeader onCreateThreadClick={onCreateThreadClick} />
         <SearchInput />

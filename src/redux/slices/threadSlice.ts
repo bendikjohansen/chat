@@ -7,6 +7,7 @@ export interface Thread {
   id: string;
   name: string;
   members: string[];
+  users: User[];
 }
 
 interface ThreadState {
@@ -43,11 +44,12 @@ export const fetchThreads = (user: User, users: User[]): AppThunk => async (disp
     if (thread.name) {
       return thread;
     }
-    const otherUsers = thread.members.filter(id => id !== user.id);
-    const threadName = otherUsers.map(userId => users.find(u => u.id === userId)?.name).join(', ');
+    const otherUsers = thread.members.filter(id => id !== user.id).map(userId => users.find(user => userId === user.id) as User);
+    const threadName = otherUsers.map(user => user?.name.split(' ')[0]).join(', ');
     return {
       ...thread,
-      name: threadName
+      name: threadName,
+      users: otherUsers,
     };
   })
   dispatch(setThreads(threadsWithNames));
