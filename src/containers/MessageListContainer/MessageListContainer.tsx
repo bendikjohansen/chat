@@ -29,6 +29,7 @@ const MessageListContainer = () => {
 
     return () => unsubscribe();
   }, [dispatch, thread]);
+
   useEffect(() => {
     if (!thread && messages.length > 0) {
       dispatch(clearMessages());
