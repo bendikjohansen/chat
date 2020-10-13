@@ -1,7 +1,7 @@
 import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import React, { ChangeEvent } from "react";
-import { User } from "../../redux/slices/userSlice";
+import { User } from "../../app/slices/userSlice";
 
 interface Props {
   onChange: (event: ChangeEvent<{}>, value: User[]) => void;

@@ -3,7 +3,7 @@ import List from "@material-ui/core/List";
 import { makeStyles } from "@material-ui/core/styles";
 import React, { useMemo } from "react";
 import { ThreadListItem } from ".";
-import { Thread } from "../../redux/slices/threadSlice";
+import { Thread } from "../../app/slices/threadSlice";
 import SearchInput from "./SearchInput";
 import ThreadListHeader from "./ThreadListHeader";
 

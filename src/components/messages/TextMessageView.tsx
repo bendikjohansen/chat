@@ -1,8 +1,8 @@
 import Typography from "@material-ui/core/Typography";
 import React from "react";
 import { useMemo } from "react";
-import { Message } from "../../redux/slices/messageSlice";
-import { User } from "../../redux/slices/userSlice";
+import { Message } from "../../app/slices/messageSlice";
+import { User } from "../../app/slices/userSlice";
 import MessageBubble from "./MessageBubble";
 
 interface MessageView extends Message {

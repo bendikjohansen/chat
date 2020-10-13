@@ -4,10 +4,10 @@ import { useLocation } from "react-router-dom";
 import { ThreadHeader } from "../../components/messages";
 import NewThreadHeader from "../../components/messages/NewThreadHeader";
 import ThreadHeaderItem from "../../components/messages/ThreadHeaderItem";
-import { selectUser } from "../../redux/slices/authSlice";
-import { selectMembers, setMembers } from "../../redux/slices/newThreadSlice";
-import { selectCurrentThread } from "../../redux/slices/threadSlice";
-import { selectUsers } from "../../redux/slices/userSlice";
+import { selectUser } from "../../app/slices/authSlice";
+import { selectMembers, setMembers } from "../../app/slices/newThreadSlice";
+import { selectCurrentThread } from "../../app/slices/threadSlice";
+import { selectUsers } from "../../app/slices/userSlice";
 
 const ThreadHeaderContainer = () => {
   const thread = useSelector(selectCurrentThread);

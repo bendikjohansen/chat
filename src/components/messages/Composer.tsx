@@ -10,7 +10,7 @@ interface Props {
 
 const Composer = ({ value, onChange, onKeyDown }: Props) => (
   <Box padding={1}>
-    <TextField value={value} onChange={onChange} onKeyDown={onKeyDown} placeholder="Type a message" fullWidth />
+    <TextField variant="outlined" margin="dense" value={value} onChange={onChange} onKeyDown={onKeyDown} placeholder="Type a message" fullWidth />
   </Box>
 );
 

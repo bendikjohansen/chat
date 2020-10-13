@@ -10,9 +10,8 @@ const useStyles = makeStyles({
   root: {
     flexGrow: 1,
     overflow: "scroll",
-    '& li:first-child': {
-      paddingTop: '15px'
-    }
+    marginTop: "-75px",
+    paddingTop: "80px"
   },
 });
 

@@ -1,7 +1,7 @@
 import Avatar from "@material-ui/core/Avatar";
 import ListItemText from "@material-ui/core/ListItemText";
 import React from "react";
-import { Thread } from "../../redux/slices/threadSlice";
+import { Thread } from "../../app/slices/threadSlice";
 import AvatarGroup from "@material-ui/lab/AvatarGroup";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 

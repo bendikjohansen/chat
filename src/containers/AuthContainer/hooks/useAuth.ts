@@ -7,8 +7,8 @@ import {
   login,
   logout,
   selectUser,
-} from "../../../redux/slices/authSlice";
-import { User } from '../../../redux/slices/userSlice';
+} from "../../../app/slices/authSlice";
+import { User } from '../../../app/slices/userSlice';
 
 const convert = async (user: firebase.User): Promise<User> => ({
   name: user.displayName as string,

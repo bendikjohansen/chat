@@ -6,7 +6,7 @@ import {
   selectCurrentThread,
   setCurrentThread,
   resetCurrentThread,
-} from "../../../redux/slices/threadSlice";
+} from "../../../app/slices/threadSlice";
 
 interface MatchParams {
   threadId: string;

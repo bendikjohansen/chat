@@ -1,9 +1,9 @@
 import firebase from "firebase/app";
-import "firebase/database";
-import { User } from "../redux/slices/userSlice";
+import "firebase/firestore";
+import { User } from "../app/slices/userSlice";
 
 const storeMessage = async (threadId: string, content: string, user: User) => {
-  await firebase.database().ref(`messages/${threadId}`).push({
+  await firebase.firestore().collection(`threads/${threadId}/messages`).add({
     userId: user.id,
     timestamp: Date.now(),
     content,

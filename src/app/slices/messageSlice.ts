@@ -1,6 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import fetchAllMessages from "../../database/fetchAllMessages";
-import { AppThunk, RootState } from "../store";
+import { RootState } from "../store";
 
 export interface Message {
   id: string,
@@ -22,7 +21,7 @@ export const messageSlice = createSlice({
   initialState,
   reducers: {
     setMessages: (state, { payload }: PayloadAction<Message[]>) => {
-      state.list = payload;
+      state.list = payload.sort((a, b) => a.timestamp - b.timestamp);
     },
     clearMessages: (state) => {
       state.list = initialState.list;
@@ -31,11 +30,6 @@ export const messageSlice = createSlice({
 });
 
 export const { setMessages, clearMessages } = messageSlice.actions;
-
-export const fetchMessages = (threadId: string): AppThunk => async (dispatch) => {
-  const messages = await fetchAllMessages(threadId);
-  dispatch(setMessages(messages));
-}
 
 export const selectThreadMessages = (state: RootState) => state.messages.list;
 

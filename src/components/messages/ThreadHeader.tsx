@@ -14,6 +14,7 @@ const useStyles = makeStyles({
     alignItems: "center",
     position: "sticky",
     backgroundColor: "rgba(255, 255, 255, 0.9)",
+    backdropFilter: "blur(4px)",
     zIndex: 1,
   },
 });

@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { useSelector } from "react-redux";
-import { selectMessage } from "../../../redux/slices/composerSlice";
-import { selectCurrentThread } from "../../../redux/slices/threadSlice";
+import { selectMessage } from "../../../app/slices/composerSlice";
+import { selectCurrentThread } from "../../../app/slices/threadSlice";
 
 const useNewMessage = () => {
   const currentThread = useSelector(selectCurrentThread);

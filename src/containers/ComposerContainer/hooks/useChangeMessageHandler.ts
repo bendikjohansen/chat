@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { change } from "../../../redux/slices/composerSlice";
-import { selectCurrentThread } from "../../../redux/slices/threadSlice";
+import { change } from "../../../app/slices/composerSlice";
+import { selectCurrentThread } from "../../../app/slices/threadSlice";
 
 const useChangeMessageHandler = () => {
   const dispatch = useDispatch();

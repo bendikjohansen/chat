@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { BrowserRouter as Router } from "react-router-dom";
 import { AuthContainer } from "./containers";
-import { store } from "./redux/store";
+import { store } from "./app/store";
 import * as serviceWorker from "./serviceWorker";
 import './index.css';
 import { firebaseConfig } from "./config";

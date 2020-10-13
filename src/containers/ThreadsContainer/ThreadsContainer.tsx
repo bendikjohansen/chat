@@ -3,7 +3,7 @@ import React, { useCallback } from "react";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { ThreadSection } from "../../components/threads";
-import { selectCurrentThread } from "../../redux/slices/threadSlice";
+import { selectCurrentThread } from "../../app/slices/threadSlice";
 import { useFetchThreads } from "./hooks";
 
 const ThreadsContainer = () => {

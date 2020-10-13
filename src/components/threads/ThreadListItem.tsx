@@ -8,7 +8,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import AvatarGroup from "@material-ui/lab/AvatarGroup";
 import React, { useMemo } from "react";
-import { Thread } from "../../redux/slices/threadSlice";
+import { Thread } from "../../app/slices/threadSlice";
 import ThreadLink from "./Link";
 
 interface Props {
